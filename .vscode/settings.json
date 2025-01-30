@@ -7,5 +7,6 @@
         "rocm",
         "webui",
         "yourname"
-    ]
+    ],
+    "makefile.configureOnOpen": false
 }

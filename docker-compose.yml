@@ -23,16 +23,16 @@ version: "2.9"
 #
 # Setup default properties for all or most containers
 #
-x-default-container: &default-container             # YAML anchor for default container
-  pull_policy: always                               # Ensure that the image is always pulled
-  restart: on-failure:5                             # Restart the container on failure up to 5 times
-  security_opt:                                     # Configure container security options
-    - no-new-privileges:true                        # Disallow addition of additional privileges
-  logging:                                          # Configure container logging options
-    driver: "json-file"                             # Use JSON file logging driver
-    options:                                        # Add container logging options
-      max-size: ${LOG_MAX_SIZE}                     # Maximum file size for logs files
-      max-file: ${LOG_MAX_FILE}                     # Maximum number of log files to retain
+x-default-container: &default-container # YAML anchor for default container
+  pull_policy: always                   # Ensure that the image is always pulled
+  restart: on-failure:5                 # Restart the container on failure up to 5 times
+  security_opt:                         # Configure container security options
+    - no-new-privileges:true            # Disallow addition of additional privileges
+  logging:                              # Configure container logging options
+    driver: "json-file"                 # Use JSON file logging driver
+    options:                            # Add container logging options
+      max-size: ${LOG_MAX_SIZE}         # Maximum file size for logs files
+      max-file: ${LOG_MAX_FILE}         # Maximum number of log files to retain
 
 #
 # Define the services section
