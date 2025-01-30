@@ -1,4 +1,4 @@
-# Ollama Deployment for Synology NAS & macOS 🧠🐳
+# Ollama 🤖🧠
 
 Ollama provides a **local LLM service**, enabling AI-driven tasks without relying on cloud-based models. This repository contains a **Docker Compose** configuration for deploying **Ollama** and its **WebUI** on **Synology NAS** and **macOS**.
 
@@ -6,7 +6,7 @@ Ollama provides a **local LLM service**, enabling AI-driven tasks without relyin
 
 ## Overview 📝
 
-This repository simplifies the deployment of Ollama using **Docker Compose**, making it easy to set up and manage on a **Synology NAS** (via DSM Container Manager or Portainer) or **macOS**.
+This repository adapts the guides from [**Lixandru Marius Bogdan**](https://github.com/mariushosting) to create a **complete all-in-one deployment** for **Ollama**. It simplifies the deployment process using **Docker Compose**, making it easy to set up and manage on a **Synology NAS** (via DSM Container Manager or Portainer) or **macOS**.
 
 ### **Features:**
 
