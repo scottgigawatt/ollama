@@ -69,8 +69,8 @@ make open
 
 Alternatively, you can manually access it from your browser:
 
-- 🌐 **Ollama WebUI**: `http://localhost:3000` *(on macOS)*
-- 📡 **Ollama WebUI**: `http://<synology-ip>:3000` *(on Synology NAS)*
+- 🌐 **Ollama WebUI**: `http://localhost:8271` *(on macOS)*
+- 📡 **Ollama WebUI**: `http://<synology-ip>:8271` *(on Synology NAS)*
 
 To view real-time logs:
 
@@ -105,7 +105,7 @@ make down
 
 ### **Can't access the web interface?** 🔥
 
-- Ensure the correct NAS IP and port (`3000`) are used.
+- Ensure the correct NAS IP and port (`8271`) are used.
 - Check running containers:
 
   ```sh
