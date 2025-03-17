@@ -1,31 +1,39 @@
 # Ollama 🤖🧠
 
-Ollama provides a **local LLM service**, enabling AI-driven tasks without relying on cloud-based models. This repository contains a **Docker Compose** configuration for deploying **Ollama** and its **WebUI** on **Synology NAS** and **macOS**.
+Ollama provides a local LLM service, enabling AI-driven tasks without relying on cloud-based models. This repository contains a Docker Compose configuration for deploying Ollama and its WebUI on Synology NAS and macOS.
 
 ---
 
 ## Overview 📝
 
-This repository adapts the guides from [**Lixandru Marius Bogdan**](https://github.com/mariushosting) to create a **complete all-in-one deployment** for **Ollama**. It simplifies the deployment process using **Docker Compose**, making it easy to set up and manage on a **Synology NAS** (via DSM Container Manager or Portainer) or **macOS**.
+This repository adapts the guides from [Lixandru Marius Bogdan](https://github.com/mariushosting) to create a complete all-in-one deployment for Ollama. It simplifies the deployment process using Docker Compose, making it easy to set up and manage on a Synology NAS (via DSM Container Manager or Portainer) or macOS.
 
-### **Features:**
+### ⚠️ Performance Notice
 
-- 🧠 **Local AI Model Serving** – Run LLM models locally without cloud dependencies.
-- 🌐 **Web Interface for Easy Interaction** – Use **Ollama WebUI** to interact with models.
-- 🏠 **Synology & macOS Compatible** – Works seamlessly across platforms.
-- ⚡ **Lightweight & Efficient** – Minimal resource usage with optimized performance.
+While Ollama can run in Docker on Synology NAS and macOS, performance is significantly limited. On Synology NAS, it's generally too slow to be practical. On macOS, running Ollama in Docker will heavily tax your CPU and will not properly leverage your system's GPU. For optimal performance on macOS, it's recommended to install Ollama natively and only use this Docker Compose setup to run the Ollama WebUI.
+
+You can install Ollama natively on macOS by following the instructions here: [Ollama macOS Install Guide](https://ollama.com/download/mac).
+
+For details on how to connect the WebUI to a native Ollama service, see [Connecting WebUI to Native Ollama](#connecting-webui-to-native-ollama-on-macos-).
+
+### Features
+
+- 🧠 **Local AI Model Serving** - Run LLM models locally without cloud dependencies.
+- 🌐 **Web Interface for Easy Interaction** - Use Ollama WebUI to interact with models.
+- 🏠 **Synology & macOS Compatible** - Works seamlessly across platforms.
+- ⚡ **Lightweight & Efficient** - Minimal resource usage with optimized performance.
 
 For setup instructions, visit:
 
-- 📖 **[Ollama Setup Guide](https://mariushosting.com/how-to-install-ollama-on-your-synology-nas/)**
+- 📖 [Ollama Setup Guide](https://mariushosting.com/how-to-install-ollama-on-your-synology-nas/)
 
 ---
 
 ## Configuring IPAM and Network Firewall 🌍
 
-This project uses **Docker IPAM (IP Address Management)** to manage container networking. To ensure smooth communication, you may need to configure your **firewall** to allow access based on the defined subnet.
+This project uses Docker IPAM (IP Address Management) to manage container networking. To ensure smooth communication, you may need to configure your firewall to allow access based on the defined subnet.
 
-### **IPAM Configuration**
+### IPAM Configuration
 
 You can configure the following settings in your [`.env`](example.env) file:
 
@@ -40,7 +48,7 @@ COMPOSE_NETWORK_IP_RANGE="${COMPOSE_NETWORK_IP_RANGE:-172.24.5.0/24}"
 COMPOSE_NETWORK_GATEWAY="${COMPOSE_NETWORK_GATEWAY:-172.24.5.254}"
 ```
 
-### **Updating Firewall Settings on Synology NAS** 🔥
+### Updating Firewall Settings on Synology NAS 🔥
 
 To allow communication for this Docker network, update the **Synology Firewall** settings:
 
@@ -62,14 +70,14 @@ For more details, check the **[Docker Compose IPAM documentation](https://docs.d
 
 ## Deployment 🚀
 
-This guide walks you through deploying **Ollama** using **Docker Compose**. You can deploy it on:
+This guide walks you through deploying Ollama using Docker Compose. You can deploy it on:
 
-- 🏠 **Synology NAS** (DSM Container Manager or Portainer)
-- 💻 **macOS** (Docker Desktop)
+- 🏠 Synology NAS (DSM Container Manager or Portainer)
+- 💻 macOS (Docker Desktop)
 
-### **Using the Makefile** 🛠️
+### Using the Makefile 🛠️
 
-To simplify deployment and management, this project includes a **Makefile** with the following commands:
+To simplify deployment and management, this project includes a Makefile with the following commands:
 
 | Command              | Description |
 |----------------------|-------------|
@@ -81,7 +89,7 @@ To simplify deployment and management, this project includes a **Makefile** with
 | `make clean`        | Alias for `make down`. |
 | `make help`         | Displays available commands. |
 
-### **1. Copy and Edit the Environment File** 📜
+### 1. Copy and Edit the Environment File 📜
 
 A sample `.env` file is included. Copy it and adjust any necessary settings:
 
@@ -90,7 +98,7 @@ cp example.env .env
 vim .env  # Edit as needed
 ```
 
-### **2. Deploy Using Makefile**
+### 2. Deploy Using Makefile
 
 Run the following command to bring up the service stack:
 
@@ -98,9 +106,9 @@ Run the following command to bring up the service stack:
 make up
 ```
 
-### **3. Access the Web Interface** 🌍
+### 3. Access the Web Interface 🌍
 
-Once deployed, open the **Ollama WebUI** using:
+Once deployed, open the Ollama WebUI using:
 
 ```sh
 make open
@@ -127,10 +135,10 @@ make down
 
 ## Troubleshooting 🛠️
 
-### **Ollama WebUI not connecting to Ollama?** 🤖
+### Ollama WebUI not connecting to Ollama? 🤖
 
-- Ensure the **OLLAMA_BASE_URL** in your `.env` is set correctly.
-- Check if the **Ollama container is running**:
+- Ensure the OLLAMA_BASE_URL in your `.env` is set correctly.
+- Check if the Ollama container is running:
 
   ```sh
   docker ps | grep ollama
@@ -142,7 +150,7 @@ make down
   docker restart ollama
   ```
 
-### **Can't access the web interface?** 🔥
+### Can't access the web interface? 🔥
 
 - Ensure the correct NAS IP and port (`8271`) are used.
 - Check running containers:
@@ -164,12 +172,93 @@ make down
 
 The **docker-compose.yml** file defines the deployment. Check it out if you need to tweak settings.
 
-📄 **[View docker-compose.yml](./docker-compose.yml)**
+📄 [View docker-compose.yml](./docker-compose.yml)
 
 ---
 
+## Tips for Running Ollama Natively on macOS 💡
+
+A `plist` file is included to manage the native Ollama service as a macOS Launch Agent: [com.ollama.serve.plist](config/plist/com.ollama.serve.plist).
+
+### How it works
+
+Launch Agents are macOS-specific services managed by `launchd`. The provided `plist` file configures macOS to run Ollama as a background service on user login or on demand.
+
+### Installation
+
+Copy the plist file to your LaunchAgents directory:
+
+```bash
+cp config/plist/com.ollama.serve.plist ~/Library/LaunchAgents/
+```
+
+### Commands to start/stop the service
+
+```bash
+# Start the ollama service
+launchctl load ~/Library/LaunchAgents/com.ollama.serve.plist
+
+# Stop the ollama service
+launchctl unload ~/Library/LaunchAgents/com.ollama.serve.plist
+```
+
+### Optional Aliases
+
+Add these to your `.bashrc`, `.zshrc`, or preferred aliases file:
+
+```bash
+alias ollamaStart="launchctl load ~/Library/LaunchAgents/com.ollama.serve.plist"
+alias ollamaStop="launchctl unload ~/Library/LaunchAgents/com.ollama.serve.plist"
+```
+
+### Monitoring Logs
+
+After starting the service, monitor logs with:
+
+```bash
+tail -F /tmp/ollama.log /tmp/ollama.err
+```
+
+---
+
+## Connecting WebUI to Native Ollama on macOS 🔗
+
+To connect the Ollama WebUI to a natively running Ollama service on macOS:
+
+1. Open `docker-compose.yml`.
+2. Comment out the entire `ollama` service block.
+3. Comment out the `depends_on` section under the `ollama-webui` service block.
+4. In your `.env` file, set:
+
+   ```bash
+   OLLAMA_HOSTNAME="${OLLAMA_HOSTNAME:-localhost}"
+   LLAMA_WEBUI_BASE_URL="${OLLAMA_WEBUI_BASE_URL:-http://ollama:11434}"
+   ```
+
+This will configure the WebUI to connect to your native Ollama service running on macOS.
+
+### Running the WebUI from the command line
+
+After configuring your `.env` file and updating `docker-compose.yml`:
+
+```bash
+docker-compose up -d ollama-webui
+```
+
+To view logs for the WebUI service:
+
+```bash
+docker-compose logs -f ollama-webui
+```
+
+To stop the WebUI service:
+
+```bash
+docker-compose stop ollama-webui
+```
+
 ## Conclusion 🎉
 
-You've successfully set up **Ollama** for local AI model deployment! 🚀 Now you can leverage local AI capabilities without cloud dependencies.
+You've successfully set up Ollama for local AI model deployment! 🚀 Now you can leverage local AI capabilities without cloud dependencies.
 
 For advanced configurations, visit the **[Ollama documentation](https://ollama.com/docs)**.
