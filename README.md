@@ -8,13 +8,9 @@ Ollama provides a local LLM service, enabling AI-driven tasks without relying on
 
 This repository adapts the guides from [Lixandru Marius Bogdan](https://github.com/mariushosting) to create a complete all-in-one deployment for Ollama. It simplifies the deployment process using Docker Compose, making it easy to set up and manage on a Synology NAS (via DSM Container Manager or Portainer) or macOS.
 
-### ⚠️ Performance Notice
+### Performance Notice ⚠️
 
-While Ollama can run in Docker on Synology NAS and macOS, performance is significantly limited. On Synology NAS, it's generally too slow to be practical. On macOS, running Ollama in Docker will heavily tax your CPU and will not properly leverage your system's GPU. For optimal performance on macOS, it's recommended to install Ollama natively and only use this Docker Compose setup to run the Ollama WebUI.
-
-You can install Ollama natively on macOS by following the instructions here: [Ollama macOS Install Guide](https://ollama.com/download/mac).
-
-For details on how to connect the WebUI to a native Ollama service, see [Connecting WebUI to Native Ollama](#connecting-webui-to-native-ollama-on-macos-).
+While Ollama can run in Docker on Synology NAS and macOS, performance is significantly limited. On Synology NAS, it's generally too slow to be practical. On macOS, running Ollama in Docker will heavily tax your CPU and will not properly leverage your system's GPU. For optimal performance on macOS, it's recommended to install Ollama natively and only use this Docker Compose setup to run the Ollama WebUI. See [Tips for Running Ollama Natively on macOS](#tips-for-running-ollama-natively-on-macos-) to set up the native Ollama service using a macOS Launch Agent. For details on how to connect the WebUI to a native Ollama service, see [Connecting WebUI to Native Ollama](#connecting-webui-to-native-ollama-on-macos-).
 
 ### Features
 
