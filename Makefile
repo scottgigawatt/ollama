@@ -20,11 +20,11 @@ RUN=run
 #
 # Docker Compose options
 #
-COMPOSE_PROJECT_NAME  ?= ollama
-COMPOSE_DOWN_TIMEOUT  ?= 30
-COMPOSE_DOWN_OPTIONS  ?= --timeout $(COMPOSE_DOWN_TIMEOUT) --volumes
-COMPOSE_UP_OPTIONS    ?= --detach
-COMPOSE_LOGS_OPTIONS  ?= --follow
+COMPOSE_PROJECT_NAME ?= ollama
+COMPOSE_DOWN_TIMEOUT ?= 30
+COMPOSE_DOWN_OPTIONS ?= --timeout $(COMPOSE_DOWN_TIMEOUT) --volumes
+COMPOSE_UP_OPTIONS   ?= --detach
+COMPOSE_LOGS_OPTIONS ?= --follow
 
 #
 # Build dependencies
@@ -46,7 +46,8 @@ $(ALL): $(UP)
 # $(BUILD_DEPENDS): Ensure build dependencies are installed.
 #
 $(BUILD_DEPENDS):
-	$(foreach exe,$(DEPENDENCIES), 		$(if $(shell which $(exe) 2> /dev/null),,$(error "No $(exe) in PATH")))
+	$(foreach exe,$(DEPENDENCIES),
+			$(if $(shell which $(exe) 2> /dev/null),,$(error "No $(exe) in PATH")))
 
 #
 # $(DOWN): Stops containers and removes containers, networks, and volumes.
