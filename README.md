@@ -1,12 +1,12 @@
 # Ollama 🤖🧠
 
-Welcome to Ollama, your friendly neighborhood local LLM service! Say goodbye to cloud dependency and hello to AI-driven tasks right at home. This repository is your trusty guide for deploying Ollama and its WebUI on Synology NAS and macOS using Docker Compose. Let’s dive in!
+Welcome to Ollama, your friendly neighborhood local LLM service! Say goodbye to cloud dependency and hello to AI-driven tasks right at home. This repository is your trusty guide for deploying Ollama and its WebUI on Synology NAS and macOS using Docker Compose. Let's dive in!
 
 ---
 
 ## Overview 📝
 
-This repository is inspired by the genius of [Lixandru Marius Bogdan](https://github.com/mariushosting). We’ve crafted a one-stop-shop for deploying Ollama, making your setup as easy as pie (or should we say, as easy as a well-trained AI?). Whether you’re on Synology NAS (via DSM Container Manager or Portainer) or macOS, we’ve got you covered!
+This repository is inspired by the genius of [Lixandru Marius Bogdan](https://github.com/mariushosting). We've crafted a one-stop-shop for deploying Ollama, making your setup as easy as pie (or should we say, as easy as a well-trained AI?). Whether you're on Synology NAS (via DSM Container Manager or Portainer) or macOS, we've got you covered!
 
 ### Performance Notice ⚠️
 
@@ -27,7 +27,7 @@ For setup instructions, hop on over to:
 
 ## Configuring IPAM and Network Firewall 🌍
 
-Let’s talk Docker IPAM (IP Address Management). It’s the superhero of container networking! To keep your containers chatting smoothly, you might need to tweak your firewall settings.
+Let's talk Docker IPAM (IP Address Management). It's the superhero of container networking! To keep your containers chatting smoothly, you might need to tweak your firewall settings.
 
 ### IPAM Configuration
 
@@ -66,14 +66,14 @@ For more details, check out the **[Docker Compose IPAM documentation](https://do
 
 ## Deployment 🚀
 
-Let’s get Ollama up and running! This guide is your roadmap to deploying Ollama with Docker Compose. You can do it on:
+Let's get Ollama up and running! This guide is your roadmap to deploying Ollama with Docker Compose. You can do it on:
 
 - 🏠 Synology NAS (DSM Container Manager or Portainer)
 - 💻 macOS (Docker Desktop)
 
 ### Using the Makefile 🛠️
 
-We’ve included a Makefile to make your life easier. Here’s what you can do:
+We've included a Makefile to make your life easier. Here's what you can do:
 
 | Command              | Description |
 |----------------------|-------------|
@@ -87,7 +87,7 @@ We’ve included a Makefile to make your life easier. Here’s what you can do:
 
 ### 1. Copy and Edit the Environment File 📜
 
-We’ve got a sample `.env` file for you! Copy it and tweak it to your liking:
+We've got a sample [`example.env`](example.env) file for you! Copy it and tweak it to your liking:
 
 ```sh
 cp example.env .env
@@ -146,7 +146,7 @@ make down
   docker restart ollama
   ```
 
-### Can’t access the web interface? 🔥
+### Can't access the web interface? 🔥
 
 - Verify the NAS IP and port (`8271`) are correct.
 - Check running containers:
@@ -174,7 +174,7 @@ The **docker-compose.yml** file is where the magic happens. Tweak it as needed!
 
 ## Tips for Running Ollama Natively on macOS 💡
 
-We’ve included a `plist` file to manage the native Ollama service as a macOS Launch Agent: [com.ollama.serve.plist](config/plist/com.ollama.serve.plist).
+We've included a `plist` file to manage the native Ollama service as a macOS Launch Agent: [com.ollama.serve.plist](config/plist/com.ollama.serve.plist).
 
 ### How it works
 
@@ -221,7 +221,7 @@ tail -F /tmp/ollama.log /tmp/ollama.err
 
 ## Connecting WebUI to Native Ollama on macOS 🔗
 
-Want to connect the Ollama WebUI to a natively running Ollama service on macOS? Here’s how:
+Want to connect the Ollama WebUI to a natively running Ollama service on macOS? Here's how:
 
 1. Open `docker-compose.yml`.
 2. Comment out the entire `ollama` service block.
@@ -257,6 +257,6 @@ docker-compose stop ollama-webui
 
 ## Conclusion 🎉
 
-You’ve successfully set up Ollama for local AI model deployment! 🚀 Now you’re ready to unleash the power of local AI without the cloud’s shackles.
+You've successfully set up Ollama for local AI model deployment! 🚀 Now you're ready to unleash the power of local AI without the cloud's shackles.
 
-For advanced configurations, don’t forget to visit the **[Ollama documentation](https://ollama.com/docs)**. Happy AI-ing!
+For advanced configurations, don't forget to visit the **[Ollama documentation](https://ollama.com/docs)**. Happy AI-ing!
