@@ -10,12 +10,12 @@ This repository is inspired by the genius of [Lixandru Marius Bogdan](https://gi
 
 ### Performance Notice ⚠️
 
-Heads up! While Ollama plays nice in Docker on Synology NAS and macOS, performance can be a bit sluggish. Synology NAS might feel like it's running on a treadmill, and macOS might give your CPU a workout without tapping into that sweet GPU power. For the best experience on macOS, install Ollama natively and use this Docker Compose setup just for the WebUI. Check out [Tips for Running Ollama Natively on macOS](#tips-for-running-ollama-natively-on-macos-) for the scoop on setting up a native Ollama service. And if you want to connect the WebUI to your native Ollama, see [Connecting WebUI to Native Ollama](#connecting-webui-to-native-ollama-on-macos-).
+Heads up! While Ollama plays nice in Docker on Synology NAS and macOS, performance can be a bit sluggish. Synology NAS might feel like it's running on a treadmill, and macOS might give your CPU a workout without tapping into that sweet GPU power. For the best experience on macOS, install Ollama natively and use this Docker Compose setup just for the WebUI. Check out [Tips for Running Ollama Natively on macOS](#tips-for-running-ollama-natively-on-macos-) for the scoop on setting up a native Ollama service. And if you want to connect the WebUI to your native Ollama, see [Connecting WebUI to Native Ollama](#connecting-webui-to-macos-native-ollama-).
 
 ### Features
 
 - 🧠 **Local AI Model Serving** - Run LLM models locally, no cloud strings attached.
-- 🌐 **Web Interface for Easy Interaction** - Chat with your models through the Ollama WebUI.
+- 🌐 **Web UI for Easy Interaction** - Chat with your models through the Ollama WebUI.
 - 🏠 **Synology & macOS Compatible** - Seamless operation across platforms.
 - ⚡ **Lightweight & Efficient** - Minimal resource hogging with optimized performance.
 
@@ -168,13 +168,15 @@ make down
 
 The **docker-compose.yml** file is where the magic happens. Tweak it as needed!
 
-📄 [View docker-compose.yml](./docker-compose.yml)
+- 📄 [View `docker-compose.yml`](./docker-compose.yml)
 
 ---
 
 ## Tips for Running Ollama Natively on macOS 💡
 
-We've included a `plist` file to manage the native Ollama service as a macOS Launch Agent: [com.ollama.serve.plist](config/plist/com.ollama.serve.plist).
+We've included a `plist` file to manage the native Ollama service as a macOS Launch Agent:
+
+- 📄 [View `com.ollama.serve.plist`](config/plist/com.ollama.serve.plist)
 
 ### How it works
 
@@ -219,7 +221,7 @@ tail -F /tmp/ollama.log /tmp/ollama.err
 
 ---
 
-## Connecting WebUI to Native Ollama on macOS 🔗
+## Connecting WebUI to macOS Native Ollama 🔗
 
 Want to connect the Ollama WebUI to a natively running Ollama service on macOS? Here's how:
 
