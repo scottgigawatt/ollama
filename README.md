@@ -1,3 +1,29 @@
+<hr />
+
+<p align="center">
+  <em>🦙🤖 Star this repo — unleash the llama overlords and train your models in style.</em>
+</p>
+
+<p align="center">
+  <img src="https://img.shields.io/github/license/scottgigawatt/ollama?label=Llama%20License&color=blue" alt="License" />
+  <img src="https://img.shields.io/github/last-commit/scottgigawatt/ollama?label=Last%20Inference&logo=git&color=green" alt="Last Commit" />
+  <img src="https://img.shields.io/github/repo-size/scottgigawatt/ollama?label=Model%20Payload&color=orange" alt="Repo Size" />
+</p>
+
+<p align="center">─── ⛧ ───</p>
+
+<p align="center">
+    <em>🔥🤖 Cursed AI? Rogue llamas? Cross the neural underworld and <strong>Enter 🔥HADES🔥</strong>.</em>
+</p>
+
+<p align="center">
+  <a href="https://discord.gg/BpEGzWwGYf">
+    <img src="https://img.shields.io/discord/1403601106315116626?label=%F0%9F%94%A5HADES%F0%9F%94%A5&logo=discord&logoColor=white&color=5865F2" alt="🔥HADES🔥 Discord" />
+  </a>
+</p>
+
+<hr />
+
 # Ollama 🤖🧠
 
 Welcome to Ollama, your friendly neighborhood local LLM service! Say goodbye to cloud dependency and hello to AI-driven tasks right at home. This repository is your trusty guide for deploying Ollama and its WebUI on Synology NAS and macOS using Docker Compose. Let's dive in!
